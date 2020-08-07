@@ -54,7 +54,7 @@ class Form extends Component {
         }} />
         <div>
           <button onClick={(e) => this.handleReset(e)}>Cancel</button>
-          <button>Add to inventory</button>
+          <button onClick={(e) => this.handleReset(e)}>Add to inventory</button>
         </div>
       </div>
     );

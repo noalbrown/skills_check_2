@@ -12,10 +12,15 @@ class App extends Component {
       products: []
     }
     this.getAll = this.getAll.bind(this)
+    this.create = this.create.bind(this)
+  }
+
+  componentDidMount() {
+    this.getAll();
   }
 
   getAll = () => {
-    axios.get('/api/products')
+    axios.get('/api/inventory')
       .then(res => {
         this.setState({
           products: res.data
@@ -23,8 +28,12 @@ class App extends Component {
       }).catch(error => console.log(error))
   }
 
-  componentDidMount() {
-    this.getAll();
+  create(image_url, name, price) {
+    axios.post('/api/product', { image_url, name, price }).then(res => {
+      this.setState({
+        products: res.data
+      })
+    }).catch(error => console.log(error))
   }
 
   render() {
@@ -32,7 +41,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Dashboard getAll={this.getAll} />
-        <Form />
+        <Form create={this.create} />
       </div>
     );
   }
