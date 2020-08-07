@@ -12,7 +12,6 @@ class App extends Component {
       products: []
     }
     this.getAll = this.getAll.bind(this)
-    this.create = this.create.bind(this)
   }
 
   componentDidMount() {

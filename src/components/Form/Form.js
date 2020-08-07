@@ -4,7 +4,7 @@ import axios from 'axios'
 class Form extends Component {
   constructor() {
     super()
-    state = {
+    this.state = {
       imageURL: '',
       productName: '',
       price: 0
@@ -48,7 +48,7 @@ class Form extends Component {
 
   handleReset() {
     this.setState({
-      imageURL: '', productName: '', productName: 0
+      imageURL: '', productName: '', price: 0
     })
   }
 
