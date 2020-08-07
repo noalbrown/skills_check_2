@@ -28,19 +28,11 @@ class App extends Component {
       }).catch(error => console.log(error))
   }
 
-  create(image_url, name, price) {
-    axios.post('/api/product', { image_url, name, price }).then(res => {
-      this.setState({
-        products: res.data
-      })
-    }).catch(error => console.log(error))
-  }
-
   render() {
     return (
       <div className="App">
         <Header />
-        <Dashboard getAll={this.getAll} />
+        <Dashboard getAll={this.getAll} delete={this.delete} />
         <Form create={this.create} />
       </div>
     );

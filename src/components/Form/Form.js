@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios'
 
 class Form extends Component {
   constructor() {
@@ -8,6 +9,23 @@ class Form extends Component {
       productName: '',
       price: 0
     }
+  }
+
+  update = (id, imageURL, productName, price) => {
+    axios.put(`/api/products/edit/${id}`, { imageURL, productName, price })
+      .then(res => {
+        this.setState({
+          products: res.data
+        })
+      }).catch(error => console.log(error))
+  }
+
+  create(imageURL, productName, price) {
+    axios.post('/api/product', { imageURL, productName, price }).then(res => {
+      this.setState({
+        products: res.data
+      })
+    }).catch(error => console.log(error))
   }
 
   handleImageURL(e) {
