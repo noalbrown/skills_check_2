@@ -18,11 +18,11 @@ massive({
 
 app.use(express.json());
 
-// app.post('/api/somename', ctrl.create);
-// app.get('/api/somename', ctrl.getAll);
-// app.get('/api/somename/:id', ctrl.getOne);
-// app.put('/api/somename/:id', ctrl.update);
-// app.delete('/api/somename/:id', ctrl.delete);
+// app.post('/api/products', ctrl.create);
+app.get('/api/products', ctrl.getAll);
+// app.get('/api/products/:id', ctrl.getOne);
+// app.put('/api/products/:id', ctrl.update);
+// app.delete('/api/products/:id', ctrl.delete);
 
 app.listen(SERVER_PORT, () => {
   console.log(`Server listening on port ${SERVER_PORT}`);
